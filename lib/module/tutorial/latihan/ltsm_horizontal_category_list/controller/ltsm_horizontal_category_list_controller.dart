@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:example/state_util.dart';
 import '../view/ltsm_horizontal_category_list_view.dart';
 
-class LtsmHorizontalCategoryListController extends State<LtsmHorizontalCategoryListView> implements MvcController {
+class LtsmHorizontalCategoryListController
+    extends State<LtsmHorizontalCategoryListView> implements MvcController {
   static late LtsmHorizontalCategoryListController instance;
   late LtsmHorizontalCategoryListView view;
 
@@ -17,4 +18,5 @@ class LtsmHorizontalCategoryListController extends State<LtsmHorizontalCategoryL
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
+  int selectedIndex = 0;
 }

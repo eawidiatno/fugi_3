@@ -12,12 +12,13 @@ class LtsmEnabledOrDisabledView extends StatefulWidget {
       appBar: AppBar(
         title: const Text("LtsmEnabledOrDisabled"),
         actions: const [],
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
               /*
               ? Buat variabel enabled di dalam State/Controller
               ! bool enabled = false;
@@ -42,6 +43,36 @@ class LtsmEnabledOrDisabledView extends StatefulWidget {
               */
                 
               */
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton.icon(
+                    icon: const Icon(Icons.add),
+                    label: const Text("Add"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          controller.enabled ? Colors.orange : Colors.grey,
+                    ),
+                    onPressed: () {
+                      controller.enabled = controller.enabled;
+                      controller.setState(() {});
+                    },
+                  ),
+                  ElevatedButton.icon(
+                    icon: const Icon(Icons.phone_enabled),
+                    label: const Text("Enable"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          controller.enabled ? Colors.green : Colors.grey,
+                    ),
+                    onPressed: () {
+                      controller.enabled = !controller.enabled;
+                      controller.setState(() {});
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ),

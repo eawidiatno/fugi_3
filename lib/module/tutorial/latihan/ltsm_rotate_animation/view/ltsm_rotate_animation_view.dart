@@ -12,6 +12,7 @@ class LtsmRotateAnimationView extends StatefulWidget {
       appBar: AppBar(
         title: const Text("LtsmRotateAnimation"),
         actions: const [],
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -24,7 +25,7 @@ class LtsmRotateAnimationView extends StatefulWidget {
                 //TODO:
                 //jika animate == true, atur derajat rotasinya menjadi 90
                 //jika animate == false, atur opacity menjadi 0
-                turns: 15 / 360,
+                turns: controller.animate == true ? 90 : 0,
                 duration: const Duration(milliseconds: 2000),
                 child: Container(
                   height: 100.0,
@@ -51,9 +52,14 @@ class LtsmRotateAnimationView extends StatefulWidget {
                 icon: const Icon(Icons.animation),
                 label: const Text("Animate"),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
+                  backgroundColor: controller.animate == false
+                      ? Colors.blueGrey
+                      : Colors.green,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  controller.animate = !controller.animate;
+                  controller.setState(() {});
+                },
               ),
             ],
           ),

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:example/state_util.dart';
 import '../view/ltsm_enabled_or_disabled_view.dart';
 
-class LtsmEnabledOrDisabledController extends State<LtsmEnabledOrDisabledView> implements MvcController {
+class LtsmEnabledOrDisabledController extends State<LtsmEnabledOrDisabledView>
+    implements MvcController {
   static late LtsmEnabledOrDisabledController instance;
   late LtsmEnabledOrDisabledView view;
 
@@ -17,4 +18,5 @@ class LtsmEnabledOrDisabledController extends State<LtsmEnabledOrDisabledView> i
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
+  bool enabled = false;
 }

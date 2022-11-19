@@ -12,6 +12,7 @@ class LtsmFadeAnimationView extends StatefulWidget {
       appBar: AppBar(
         title: const Text("LtsmFadeAnimation"),
         actions: const [],
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -29,7 +30,8 @@ class LtsmFadeAnimationView extends StatefulWidget {
                   //TODO:
                   //jika animate == true, atur opacity menjadi 0.5
                   //jika animate == false, atur opacity menjadi 1.0
-                  color: Colors.red.withOpacity(1.0),
+                  color: Colors.red
+                      .withOpacity(controller.animate == true ? 0.5 : 1.0),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(
                       16.0,
@@ -48,9 +50,14 @@ class LtsmFadeAnimationView extends StatefulWidget {
                 icon: const Icon(Icons.animation),
                 label: const Text("Animate"),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
+                  backgroundColor: controller.animate == false
+                      ? Colors.blueGrey
+                      : Colors.green,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  controller.animate = !controller.animate;
+                  controller.setState(() {});
+                },
               ),
             ],
           ),

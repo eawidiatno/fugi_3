@@ -12,6 +12,7 @@ class LtsmVerticalCategoryListView extends StatefulWidget {
       appBar: AppBar(
         title: const Text("LtsmVerticalCategoryList"),
         actions: const [],
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -28,11 +29,17 @@ class LtsmVerticalCategoryListView extends StatefulWidget {
                     //TODO: Atur selectedIndex = index did alam event onTap()
                     //! Panggil controller.setState((){}); setelah-nya
                     return InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        controller.selectedIndex = index;
+                        controller.setState(() {});
+                      },
                       child: Card(
                         //TODO: Atur warna card, jika selectedIndex == index,
                         //! Maka warnanya orange,
                         //! Jika tidak, warnanya grey
+                        color: controller.selectedIndex == index
+                            ? Colors.orange
+                            : Colors.grey,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(

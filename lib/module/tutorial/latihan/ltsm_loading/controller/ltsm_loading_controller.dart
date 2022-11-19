@@ -18,4 +18,5 @@ class LtsmLoadingController extends State<LtsmLoadingView>
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
+  bool loading = false;
 }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:example/state_util.dart';
 import '../view/ltsm_slide_animation_view.dart';
 
-class LtsmSlideAnimationController extends State<LtsmSlideAnimationView> implements MvcController {
+class LtsmSlideAnimationController extends State<LtsmSlideAnimationView>
+    implements MvcController {
   static late LtsmSlideAnimationController instance;
   late LtsmSlideAnimationView view;
 
@@ -17,4 +18,5 @@ class LtsmSlideAnimationController extends State<LtsmSlideAnimationView> impleme
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
+  bool animate = false;
 }

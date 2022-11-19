@@ -12,6 +12,7 @@ class LtsmSlideAnimationView extends StatefulWidget {
       appBar: AppBar(
         title: const Text("LtsmSlideAnimation"),
         actions: const [],
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -24,11 +25,11 @@ class LtsmSlideAnimationView extends StatefulWidget {
                 duration: const Duration(milliseconds: 100),
                 height: 100.0,
                 width: 100.0,
-                margin: const EdgeInsets.only(
+                margin: EdgeInsets.only(
                   //TODO:
                   //jika animate == true, atur left menjadi 200
                   //jika animate == false, atur left menjadi 0
-                  left: 0.0,
+                  left: controller.animate == true ? 200 : 0,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.red[200],
@@ -50,9 +51,14 @@ class LtsmSlideAnimationView extends StatefulWidget {
                 icon: const Icon(Icons.animation),
                 label: const Text("Animate"),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
+                  backgroundColor: controller.animate == false
+                      ? Colors.blueGrey
+                      : Colors.green,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  controller.animate = !controller.animate;
+                  controller.setState(() {});
+                },
               ),
             ],
           ),
