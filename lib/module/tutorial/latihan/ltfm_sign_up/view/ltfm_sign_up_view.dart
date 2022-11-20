@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:example/core.dart';
-import '../controller/ltfm_sign_up_controller.dart';
 
 class LtfmSignUpView extends StatefulWidget {
   const LtfmSignUpView({Key? key}) : super(key: key);
@@ -12,12 +11,13 @@ class LtfmSignUpView extends StatefulWidget {
       appBar: AppBar(
         title: const Text("LtfmSignUp"),
         actions: const [],
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
               //! 1. Buatlah textfield email
               //! 2. Buatlah textfield password
               //! 3. Buatlah textfield confirm password
@@ -27,6 +27,34 @@ class LtfmSignUpView extends StatefulWidget {
               //ketika di klik, panggil:
               // controller.doLogin()
               //Jika dialog muncul ketika tombol di klik, tasks ini selesai
+              QTextField(
+                value: "demo@gmail.com",
+                label: "Email",
+                hint: "Your email",
+                onChanged: (value) {},
+              ),
+              QTextField(
+                value: "123456",
+                label: "Password",
+                hint: "Your password",
+                obscure: true,
+                onChanged: (value) {},
+              ),
+              QTextField(
+                value: "123456",
+                label: "Confirm Password",
+                hint: "Your password",
+                obscure: true,
+                onChanged: (value) {},
+              ),
+              ElevatedButton.icon(
+                icon: const Icon(Icons.login),
+                label: const Text("Sign Up"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey,
+                ),
+                onPressed: () => controller.doLogin(),
+              ),
             ],
           ),
         ),

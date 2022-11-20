@@ -11,6 +11,7 @@ class LtfmLoginView extends StatefulWidget {
       appBar: AppBar(
         title: const Text("LtfmLogin"),
         actions: const [],
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Container(
